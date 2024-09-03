@@ -24,8 +24,8 @@ export default function Home() {
     setLoading(true);
     setTimeout(() => {
       router.push('/note-list');
-      HandleFullscreen();
     }, 5000);
+    HandleFullscreen();
 };
 
   return (
