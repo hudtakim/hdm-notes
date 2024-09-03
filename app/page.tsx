@@ -9,12 +9,22 @@ export default function Home() {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
 
+  const HandleFullscreen = () => {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen().catch(err => {
+        console.error(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
+      });
+    }
+  };
+
   const startClicked = () => {
     const audio = new Audio('/start-sound.wav');
     audio.play();
     setLoading(true);
     setTimeout(() => {
       router.push('/note-list');
+      HandleFullscreen();
     }, 5000);
 };
 
