@@ -1,0 +1,94 @@
+.layout-main{
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    .header{
+        margin-top: 6px;
+    }
+
+    .main{
+        display: grid;
+        grid-template-rows: 80px 450px auto;
+
+        .filter-section{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            padding: 0 10px;
+
+            .back-btn-section{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                .back-btn{
+                    background-image: url('/back-btn-sm.png');
+                    height: 35px;
+                    width: 35px;
+                    background-size: cover;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                .back-btn:active{
+                    transform: scale(0.9);
+                }
+            }
+            
+            .filter-dropdown-section{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+
+                .filter-dropdown-container{
+                    margin: auto 0;    
+                }
+            }
+        }
+
+        .list-section{
+            padding: 0 10px;
+            margin-right: 10px;
+            display: grid;
+            row-gap: 6px;
+            overflow-y: auto;
+        }
+
+        .button-section{
+            display: flex;
+            align-items: start;
+            justify-content: space-evenly;
+
+            button{
+                background-size: cover;
+                height: 100px;
+                width: 100px;
+                border-radius: 100%;
+                border: none;
+                background-color: transparent;
+                margin-top: 20px;
+                cursor: pointer;
+            }
+
+            button:active{
+                transform: scale(0.9);
+            }
+
+            .delete-btn{
+                background-image: url('/delete-btn.png');
+            }
+
+            
+            .edit-btn{
+                background-image: url('/edit-btn.png');
+            }
+
+            
+            .new-btn{
+                background-image: url('/new-btn.png');
+            }
+        }
+    }
+
+}

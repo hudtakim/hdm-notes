@@ -1,0 +1,21 @@
+.main{
+    background-color: rgba(0,0,0,0.29);
+    height: 98px;
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+    padding: 5px;
+
+    .title{
+        text-decoration: underline;
+    }
+
+    .text{
+        text-align: justify;
+    }
+}
+
+.main:hover{
+    background-color: rgba(#FFC000, 0.77);
+    color: black;
+}

@@ -1,0 +1,75 @@
+.main{
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  .title-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  
+    .title-section{
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+
+  .start-button, .start-button-loading{
+    position: absolute;
+    z-index: 100;
+    top: 63%;
+    right: 10%;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    animation: flash 2s infinite;
+  }
+
+  .start-button:active{
+    transform: scale(0.9);
+    //pointer-events: none;
+  }
+
+  .start-button-loading{
+    filter: brightness(0.5);
+    pointer-events: none;
+    animation: none;
+  }
+
+  .loading-hide{
+    display: none;
+  }
+
+  .loading-show{
+    position: absolute;
+    z-index: 120;
+    bottom: 10%;
+    left: 30%;
+    animation: zoom 2s infinite;
+  }
+}
+
+@keyframes zoom {
+  0% {
+      transform: scale(1); /* Start at original size */
+  }
+  50% {
+      transform: scale(1.1); /* Zoom in to 120% */
+  }
+  100% {
+      transform: scale(1); /* Zoom back to original size */
+  }
+}
+
+@keyframes flash {
+  0% {
+      filter: brightness(0.85);
+  }
+  50% {
+      filter: brightness(1.05);
+  }
+  100% {
+      filter: brightness(0.85);
+  }
+}
