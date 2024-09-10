@@ -16,6 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className={inter.className}>
         <div className="main-wrapper">{children}</div>
       </body>

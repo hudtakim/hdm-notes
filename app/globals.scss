@@ -2,6 +2,11 @@ body{
   background-color: #881b1b;
   padding: 0;
   margin: 0;
+  font-family: 'Electrolize', sans-serif;
+}
+
+div{
+  font-family: 'Electrolize', sans-serif;
 }
 
 .main-wrapper{
@@ -12,3 +17,26 @@ body{
   margin: 0 auto;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.29);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8C8C8C;
+  border-radius: 9px;
+}
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: white;
+//   border: 1px solid #3D39FF;
+//   box-shadow: 0 0 5px 5px #3D39FF, inset 0 0 5px 5px #3D39FF;
+//   border-radius: 1vw;
+// }

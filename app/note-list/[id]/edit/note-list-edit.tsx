@@ -2,28 +2,25 @@
 
 import styles from "./page.module.scss";
 import { useRouter } from "next/navigation";
-import Dropdown from "../../component/dropdown/dropdown";
+import Dropdown from "@/app/component/dropdown/dropdown";
 import { ChangeEvent, useState, useEffect } from "react";
 import { categoryList } from '@/app/lib/dummy-category';
-import { dropdownInterface, dropdownType, noteDataType } from "@/app/lib/types";
+import { dropdownType, noteDataType, noteListEditInterface} from "@/app/lib/types";
 import { FormatDate } from "@/app/lib/services";
-import { CreateNote } from "@/app/lib/actions";
+import { UpdateNote } from "@/app/lib/actions";
 
-const NoteList = () => {
+const NoteListEdit: React.FC<noteListEditInterface> = ({noteData}) => {
+
+  const [data, setData] = useState<noteDataType>(noteData[0]);
+
   const [isSaved, setIsSaved] = useState<boolean>(true);
-  const [category, setCategory] = useState<dropdownType>();
+  const defCategory = categoryList.filter(row => row.text === data.category);
+  const [category, setCategory] = useState<dropdownType>(defCategory[0]);
 
   useEffect(() => {
     setData({...data, category: category ? category.text : ''});
+    if(category.text !== defCategory[0].text)setIsSaved(false);
   }, [category])
-
-  const [data, setData] = useState<noteDataType>({
-    id: -1,
-    title: '',
-    category: '',
-    text: '',
-    date: new Date()
-  });
 
   const router = useRouter();
 
@@ -34,14 +31,13 @@ const NoteList = () => {
     router.push(lastRoute ? lastRoute : '/note-list');
   }
 
-  const SaveBtnClicked = async() => {
+  const SaveBtnClicked = async () => {
     const audio2 = new Audio('/save-sound.wav');
     audio2.pause();
     audio2.play();
     setIsSaved(true);
     console.log(data);
-    const createdId = await CreateNote(data);
-    router.push(`/note-list/${createdId}/edit`);
+    await UpdateNote(data);
   }
 
   const buttonDisabled: React.CSSProperties = {
@@ -70,7 +66,7 @@ const NoteList = () => {
                   <input type="text" className={styles['input-title']} placeholder="Title" value={data.title} onChange={(e) => HandleTitleChange(e)} />
                 </div>
                 <div className={styles['filter-dropdown-container']}>
-                  <Dropdown data={categoryList} placeholder="Category" setValue={setCategory}/>
+                  <Dropdown data={categoryList} placeholder="Category" value={category} setValue={setCategory}/>
                 </div>
             </div>
         </div>
@@ -87,4 +83,4 @@ const NoteList = () => {
   )
 }
 
-export default NoteList
+export default NoteListEdit

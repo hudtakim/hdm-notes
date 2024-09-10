@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { dropdownInterface, dropdownType } from '@/app/lib/types';
 
-const Dropdown:React.FC<dropdownInterface> = ({data, placeholder}) => {
+const Dropdown:React.FC<dropdownInterface> = ({data, placeholder, value, setValue}) => {
   const categoryList = data;
   const [showList, setShowList] = useState<boolean>(false);
-  const [selected, setSelected] = useState<dropdownType>();
+  const [selected, setSelected] = useState<dropdownType>(value);
   
   const showListStyle = {
     borderBottomLeftRadius: 0,
@@ -18,10 +18,15 @@ const Dropdown:React.FC<dropdownInterface> = ({data, placeholder}) => {
     setShowList(!showList);
   }
 
+  const ListSelected = (row: dropdownType) => {
+    setSelected(row);
+    setValue(row);
+  }
+
   const GetList = () => {
     return categoryList.map(row => {
       return (
-        <div className={styles['list-section']} id={row.id + ''} onClick={() => setSelected(row)} key={row.id}>
+        <div className={styles['list-section']} id={row.id + ''} onClick={() => ListSelected(row)} key={row.id}>
           <span>{row.text}</span>
         </div>
       )

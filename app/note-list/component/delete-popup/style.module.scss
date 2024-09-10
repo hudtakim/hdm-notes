@@ -1,0 +1,51 @@
+.main{
+    background-color: rgba(0,0,0,0.5);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    z-index: 100;
+
+    .container{
+        width: 100%;
+        margin: 0 10px;
+        height: 161px;
+        background-color: #C02A2A;
+        display: grid;
+        grid-template-rows: 50px auto;
+
+        .message{
+            color: white;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .actions{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+
+            button{
+                width: 94px;
+                height: 26px;
+                color: white;
+                border: 1px solid white;
+            }
+
+            .confirm{
+                background-color: #00CB14;
+            }
+
+            .cancel{
+                background-color: #FF0000;
+                margin-right: 15px;
+            }
+        }
+    }
+}

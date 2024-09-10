@@ -48,9 +48,11 @@
         }
 
         .list-section{
+            width: auto;
             padding: 0 10px;
-            margin-right: 10px;
-            display: grid;
+            //margin-right: 10px;
+            display: flex;
+            flex-direction: column;
             row-gap: 6px;
             overflow-y: auto;
         }

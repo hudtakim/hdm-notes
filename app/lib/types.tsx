@@ -8,6 +8,16 @@ export type noteDataType = {
     date: Date;
 } 
 
+export interface noteListInterface{
+    data: noteDataType[];
+    category_q: string;
+    sortby_q: string;
+}
+
+export interface noteListEditInterface{
+    noteData: noteDataType[];
+}
+
 export interface noteListType {
     data: noteDataType;
     selectedId: number;
@@ -22,4 +32,10 @@ export type dropdownType = {
 export interface dropdownInterface {
     data: dropdownType[];
     placeholder: string;
+    setValue: Dispatch<SetStateAction<dropdownType>>;
+    value: dropdownType;
+}
+
+export interface deletePopUpInterface {
+    setPopUpDisplay: Dispatch<SetStateAction<boolean>>
 }
